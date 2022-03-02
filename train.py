@@ -4,6 +4,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn import preprocessing
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import confusion_matrix
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.metrics import roc_curve
 from sklearn.model_selection import train_test_split
 import json
@@ -28,7 +29,8 @@ X = imp.transform(X)
 
 
 # Linear model
-clf = LogisticRegression()
+clf = QuadraticDiscriminantAnalysis()
+# clf = LogisticRegression()
 yhat = cross_val_predict(clf, X, y, cv=5)
 
 acc = np.mean(yhat==y)
